@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0"> 
+    <title>TO THE AMAZING QUEENS &#x1F451</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Hey there!</h1>
+      <p>Type your name below and get a little boost of joy!</p>
+
+      <input type="text" id="nameInput" placeholder="Enter your name here" />
+      <button onclick="displayMessage()">Show My Message</button>
+
+      <p id="message" class="hidden"></p>
+    </div>
+
+    <script>
+      const messages = [ "You're a light! ✨ Never forget that!", 
+"Keep shining, you're unstoppable! 🚀", 
+"Your big heart lights up a city! 💛", 
+"Never doubt yourself — you're doing great! 🌟", 
+"You make people smile just by being YOU! 😄", 
+"You're a whole vibe! ✨ Keep it up!", 
+"Hey, you're a superstar! 🌠", 
+"Your spark is untouchable! 🔥", 
+"You're more loved than you know! ❤️", 
+"You're made for greatness — claim it! 🌈", 
+"Someone's smiling because of you! 😊", 
+"You're magic — never forget it! ✨", 
+"You're growing more than you see! 🌿", 
+"Your kindness leaves a mark! 💕", 
+"The world is brighter with you in it! ☀️"
+
+
+      ]
+      function displayMessage() {
+        const name = document.getElementById('nameInput').value.trim();
+        const messageElement = document.getElementById('message');
+
+        if (name) {
+          const randomIndex = Math.floor(Math.random() * messages.length);
+          const sweetMessage = messages[randomIndex].replace('{name}', name);
+          messageElement.textContent = sweetMessage;
+          messageElement.classList.remove('hidden');
+        } else {
+          messageElement.textContent = 'Ooops! Please enter your name to get your message. &#9786';
+          messageElement.classList.remove('hidden');
+        }
+      }
+    </script>
+  </body>
+</html>
